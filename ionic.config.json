@@ -1,0 +1,8 @@
+{
+  "name": "conectio-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "01fca712"
+}
