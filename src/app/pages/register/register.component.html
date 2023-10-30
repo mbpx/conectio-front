@@ -1,4 +1,4 @@
-@@ -0,0 +1,43 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar>
       <ion-title>
@@ -11,31 +11,27 @@
   <div [formGroup]="registrarForm" class="register-form">
       <ion-list>
           <ion-item>
-            <ion-input label="Username" formControlName="username"></ion-input>
+            <ion-input label="Username:" formControlName="username"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input label="Nombre" formControlName="nombre"></ion-input>
+            <ion-input label="Nombre:" formControlName="nombre"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input label="Apellido1" formControlName="apellido1"></ion-input>
+            <ion-input label="Apellidos:" formControlName="apellidos"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input label="Apellido2" formControlName="apellido2"></ion-input>
+            <ion-input label="Email:" formControlName="email"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input label="Email" formControlName="email"></ion-input>
+            <ion-input label="Contraseña:" formControlName="password"></ion-input>
           </ion-item>
 
           <ion-item>
-            <ion-input label="Password" formControlName="password"></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-input label="Password" formControlName="password"></ion-input>
+            <ion-input label="Confirmar contraseña:" formControlName="password"></ion-input>
           </ion-item>
 
           <ion-button expand="block" color="primary" class="button" >Registrarse</ion-button>
