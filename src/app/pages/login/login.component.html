@@ -5,7 +5,11 @@
         </ion-title>
 
         <ion-item slot="end">
-            <ion-button color="primary" (click)="logout()">Register</ion-button>
+            <ion-button color="primary" (click)="logout()">Logout</ion-button>
+        </ion-item>
+
+        <ion-item slot="end">
+            <ion-button color="primary" [routerLink]="['register']">Register</ion-button>
         </ion-item>
 
         <!-- <ion-item slot="end">
