@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from '../../core/jwt.interceptor';
 import { AuthenticationService } from '../../core/authentication.service';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { StorageService } from 'src/app/core/storage.service';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
   ],
   providers: [
     AuthenticationService,
+    StorageService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ]
 })

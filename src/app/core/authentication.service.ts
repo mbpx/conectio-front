@@ -5,7 +5,8 @@ import { Usuario } from './user.model';
 import { AuthenticateRequest } from './authenticate.request';
 import { RegisterRequest } from './register.request';
 import { AuthenticationResponse } from './authentication.response';
-import { Storage } from '@ionic/storage';
+import { StorageService } from './storage.service';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -15,7 +16,7 @@ export class AuthenticationService {
 
   constructor(
     private http: HttpClient,
-    private storage: Storage
+    private storage: StorageService
   ) {
     this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse('{}'));
     this.currentUser = this.currentUserSubject.asObservable();
@@ -35,12 +36,12 @@ export class AuthenticationService {
     let request: AuthenticateRequest = { username, password };
     console.log(request);
     return this.http.post<AuthenticationResponse>(`${this.apiUrl}/authenticate`, request)
-      .pipe(map(async response => {
+      .pipe(map(response => {
         let usuario: Usuario = {
           username: username,
           token: response.token
         };
-        await this.storage.set('currentUser', JSON.stringify(usuario));
+        this.storage.set('currentUser', JSON.stringify(usuario));
         return response;
       }));
   }
@@ -52,10 +53,10 @@ export class AuthenticationService {
 
   register(request: RegisterRequest) {
     return this.http.post<AuthenticationResponse>(`${this.apiUrl}/register`, request)
-      .pipe(map(async response => {
+      .pipe(map(response => {
         let usuario: Usuario = request;
         usuario.token = response.token;
-        await this.storage.set('currentUser', JSON.stringify(usuario));
+        this.storage.set('currentUser', JSON.stringify(usuario));
         return response;
       }));
   }
