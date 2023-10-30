@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, config, map } from 'rxjs';
-import { Usuario } from './user.model';
-import { AuthenticateRequest } from './authenticate.request';
-import { RegisterRequest } from './register.request';
-import { AuthenticationResponse } from './authentication.response';
+import { Usuario } from '../model/user.model';
+import { AuthenticateRequest } from '../data/authenticate.request';
+import { RegisterRequest } from '../data/register.request';
+import { AuthenticationResponse } from '../data/authentication.response';
 import { StorageService } from './storage.service';
 
 

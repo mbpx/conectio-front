@@ -5,10 +5,10 @@ import { IonicModule } from '@ionic/angular';
 import { LoginComponent } from './login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { JwtInterceptor } from '../../core/jwt.interceptor';
-import { AuthenticationService } from '../../core/authentication.service';
+import { JwtInterceptor } from '../../core/interceptors/jwt.interceptor';
+import { AuthenticationService } from '../../core/services/authentication.service';
 import { IonicStorageModule } from '@ionic/storage-angular';
-import { StorageService } from 'src/app/core/storage.service';
+import { StorageService } from 'src/app/core/services/storage.service';
 
 const routes: Routes = [
   {
