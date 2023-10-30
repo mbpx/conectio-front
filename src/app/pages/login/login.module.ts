@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from '../../core/jwt.interceptor';
 import { AuthenticationService } from '../../core/authentication.service';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
   ],
   imports: [
         IonicModule,
+        IonicStorageModule.forRoot(),
         CommonModule,
         FormsModule,
         RouterModule.forChild(routes),

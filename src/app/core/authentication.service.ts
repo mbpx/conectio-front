@@ -5,6 +5,7 @@ import { Usuario } from './user.model';
 import { AuthenticateRequest } from './authenticate.request';
 import { RegisterRequest } from './register.request';
 import { AuthenticationResponse } from './authentication.response';
+import { Storage } from '@ionic/storage';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -12,9 +13,18 @@ export class AuthenticationService {
   public currentUser: Observable<Usuario>;
   private apiUrl = 'http://localhost:8080/api/v1/auth';
 
-  constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+  constructor(
+    private http: HttpClient,
+    private storage: Storage
+  ) {
+    this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse('{}'));
     this.currentUser = this.currentUserSubject.asObservable();
+
+    async () => {
+      let usuario = await this.storage.get('currentUser');
+      this.currentUserSubject = new BehaviorSubject<Usuario>(JSON.parse(usuario || '{}'));
+      this.currentUser = this.currentUserSubject.asObservable();
+    };
   }
 
   public get currentUserValue(): Usuario {
@@ -25,27 +35,27 @@ export class AuthenticationService {
     let request: AuthenticateRequest = { username, password };
     console.log(request);
     return this.http.post<AuthenticationResponse>(`${this.apiUrl}/authenticate`, request)
-      .pipe(map(response => {
+      .pipe(map(async response => {
         let usuario: Usuario = {
           username: username,
           token: response.token
         };
-        localStorage.setItem('currentUser', JSON.stringify(usuario));
+        await this.storage.set('currentUser', JSON.stringify(usuario));
         return response;
       }));
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
+    this.storage.remove('currentUser');
     this.currentUserSubject.next(null);
   }
 
-  register(request:RegisterRequest) {
+  register(request: RegisterRequest) {
     return this.http.post<AuthenticationResponse>(`${this.apiUrl}/register`, request)
-      .pipe(map(response => {
+      .pipe(map(async response => {
         let usuario: Usuario = request;
         usuario.token = response.token;
-        localStorage.setItem('currentUser', JSON.stringify(usuario));
+        await this.storage.set('currentUser', JSON.stringify(usuario));
         return response;
       }));
   }
