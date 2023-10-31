@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, config, map } from 'rxjs';
 import { Usuario } from '../model/user.model';
-import { AuthenticateRequest } from '../data/authenticate.request';
+import { AuthenticationRequest } from '../data/authentication.request';
 import { RegisterRequest } from '../data/register.request';
 import { AuthenticationResponse } from '../data/authentication.response';
 import { StorageService } from './storage.service';
@@ -33,7 +33,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    let request: AuthenticateRequest = { username, password };
+    let request: AuthenticationRequest = { username, password };
     console.log(request);
     return this.http.post<AuthenticationResponse>(`${this.apiUrl}/authenticate`, request)
       .pipe(map(response => {
