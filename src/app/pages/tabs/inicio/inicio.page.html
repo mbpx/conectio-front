@@ -4,8 +4,8 @@
             Inicio
         </ion-title>
 
-        
-        <ion-icon slot="end" size="large" name="person-circle-outline"></ion-icon>
+        <!--Botón para ir a los datos del usuario-->
+        <ion-icon slot="end" size="large" name="person-circle-outline" [routerLink]="['../../datos-usuario']"></ion-icon>
 
         <ion-item slot="end">
             <ion-button color="primary" [routerLink]="['register']">Register</ion-button>
