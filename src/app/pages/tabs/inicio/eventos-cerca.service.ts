@@ -8,6 +8,7 @@ import { EventosCercaRequest } from './eventos-cerca.request';
 })
 export class EventosCercaService {
     private apiUrl = 'http://localhost:8080/api/v1';
+    
 
     constructor(private http: HttpClient) {}
 
@@ -16,7 +17,7 @@ export class EventosCercaService {
     // }
 
     buscarEventosCerca(request: EventosCercaRequest): Observable<any> {
-      return this.http.get(`${this.apiUrl}/eventos/nearby`, {
+      return this.http.get(`${this.apiUrl}/eventos`, {
         params: {
           latitud: request.latitud.toString(),
           longitud: request.longitud.toString(),
