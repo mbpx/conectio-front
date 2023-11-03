@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'datos-usuario',
-    loadChildren: () => import('./pages/datos-usuario/datos-usuario.module').then(m => m.DatosUsuarioModule)
+    loadChildren: () => import('./pages/usuario/usuario.module').then(m => m.UsuarioModule)
   }
 ];
 @NgModule({

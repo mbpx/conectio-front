@@ -6,6 +6,8 @@ import { Inicio } from './inicio.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { InicioRoutingModule } from './inicio-routing.module';
+import { EventosCercaService } from './eventos-cerca.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -13,8 +15,14 @@ import { InicioRoutingModule } from './inicio-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    InicioRoutingModule
+    InicioRoutingModule,
+    HttpClientModule
   ],
-  declarations: [Inicio]
+  declarations: [
+    Inicio
+  ],
+  providers: [
+    EventosCercaService
+  ]
 })
 export class InicioModule {}

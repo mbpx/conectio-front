@@ -60,4 +60,8 @@ export class AuthenticationService {
         return response;
       }));
   }
+
+  eliminarCuenta(): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/eliminar-cuenta`);
+  }
 }

@@ -5,7 +5,7 @@
     </ion-title>
 
     <!--Botón para ir a la configuración del usuario-->
-    <ion-icon slot="end" size="large" name="settings-outline"></ion-icon>
+    <ion-icon slot="end" size="large" name="settings-outline" [routerLink]="['configuracion']"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -35,7 +35,6 @@
           </ion-col>
           <ion-col>
             <ion-label class="datosUsuario">Mega Man X</ion-label>
-            <!-- <ion-note color="medium">Unsubscribe at any time</ion-note> -->
           </ion-col>
         </ion-item>
       </ion-row>
