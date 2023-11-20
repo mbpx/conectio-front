@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     if (this.username && this.password) {
       this.authService.login(this.username, this.password).subscribe(
         () => {
-         this.router.navigate(["/tabs/inicio"]);
+         this.router.navigate(["../tabs/inicio"]);
         });
     }
   }

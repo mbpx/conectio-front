@@ -1,0 +1,9 @@
+#mapa {
+    min-height: 300px;
+    position: relative;
+    capacitor-google-map {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+}

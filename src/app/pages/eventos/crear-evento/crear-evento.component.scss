@@ -1,0 +1,18 @@
+.no-ripple {
+    --ripple-color: transparent;
+    --background-activated: transparent;
+    --background-activated-opacity: transparent;
+    --background-focused: transparent;
+    --background-focused-opacity: transparent;
+    --background-hover: transparent;
+    --background-hover-opacity: transparent;
+}
+
+.mapa {
+    --padding-end: 0px;
+    --inner-padding-end: 0px;
+    app-mapa {
+        width: 100%;
+        height: 100%;
+    }
+}
