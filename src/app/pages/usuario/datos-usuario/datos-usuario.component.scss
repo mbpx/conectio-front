@@ -1,0 +1,21 @@
+.datosUsuario{
+    margin-left: 2em;
+}
+
+ion-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+}
+
+ion-icon{
+    margin: 3%;
+}
+
+ion-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
